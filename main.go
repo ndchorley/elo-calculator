@@ -6,10 +6,7 @@ import (
 	elocalculator "example/elocalculator/calculator"
 )
 
-func WriteToConsole(line string) {
-	fmt.Println(line)
-}
-
 func main() {
-	elocalculator.EloCalculator(WriteToConsole)
+	writeToConsole := func(line string) { fmt.Println(line) }
+	elocalculator.EloCalculator(writeToConsole)
 }
