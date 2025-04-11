@@ -1,6 +1,10 @@
 package elocalculator
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 type StringOutputWriter struct {
 	output string
@@ -17,7 +21,6 @@ func TestItDisplaysAMessage(t *testing.T) {
 	EloCalculator(writer.PrintLine)
 
 	expected := "Hello Elo Calculator\n"
-	if writer.output != expected {
-		t.Errorf(`expected: %q, actual: %q`, expected, writer.output)
-	}
+
+	assert.Equal(t, expected, writer.output)
 }
